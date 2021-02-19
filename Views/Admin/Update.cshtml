@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+
+@model AppUser
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/menu/style.css">
+    <link rel="shortcut icon" href="favicon3.ico" type="image/png" />
+</head>
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+            </div>
+            <h1><a asp-controller="Home" asp-action="Index" class="logo">Intership Project</a></h1>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a asp-controller="Home" asp-action="Index"><span class="fa fa-home mr-3"></span> Homepage</a>
+                </li>
+                <li>
+                    <a asp-controller="Admin" asp-action="Index"><span class="fa fa-cog mr-3"></span> Admin Panel</a>
+                </li>
+                <li>
+                    <a asp-controller="Account" asp-action="Index"><span class="fa fa-user mr-3"></span> Account</a>
+                </li>
+                <li>
+                    <a asp-controller="Conference" asp-action="Index"><span class="fa fa-group mr-3"></span> Conference</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Information"><span class="fa fa-info-circle mr-3"></span> Information</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+            <h1 class="bg-info text-white">Update User</h1>
+            <a asp-action="Index" class="btn btn-secondary">Back</a>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <form asp-action="Update" method="post">
+                <div class="form-group">
+                    <label asp-for="Id"></label>
+                    <input asp-for="Id" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input name="password" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FullName"></label>
+                    <input asp-for="FullName" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/js/menu/jquery.min.js"></script>
+    <script src="~/js/menu/popper.js"></script>
+    <script src="~/js/menu/bootstrap.min.js"></script>
+    <script src="~/js/menu/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>openvidu-web-component</title>
+    <link rel="shortcut icon" href="favicon3.ico" type="image/png" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <script src="~/js/bio/app.js"></script>
+    <script src="~/js/bio/openvidu-webcomponent-2.16.0.js"></script>
+    <link rel="stylesheet" href="~/css/bio/openvidu-webcomponent-2.16.0.css">
+</head>
+
+<body>
+
+    <!-- Form to connect to a video-session -->
+    <div id="main" style="margin-left: auto; margin-right: auto; font-size: 2rem;">
+        <form onsubmit="joinSession(); return false" style="margin: auto">
+
+
+            <main class="content" style="font-family: 'Open Sans', serif;">
+
+                <h1 style="padding:10%; text-align: center; color:#F2F2F2;" >Join Conferention</h1>
+                <div class="result"></div>
+                <input class="input myin" type="text" value="SessionName" id="sessionName" />
+                <p>&#x200b</p>
+                <input class="input myin" type="text" value="NickName" id="user" />
+
+
+                <style>
+
+                    .myin {
+                        position: static;
+                        display: flex;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+
+
+                </style>
+
+
+                <a id="build" value="true">
+                    <p>
+
+                        <div class="buttons" type="submit">
+                            <button class="blob-btn">
+                                Join Session
+                                <span class="blob-btn__inner">
+                                    <span class="blob-btn__blobs">
+                                        <span class="blob-btn__blob"></span>
+                                        <span class="blob-btn__blob"></span>
+                                        <span class="blob-btn__blob"></span>
+                                        <span class="blob-btn__blob"></span>
+                                    </span>
+                                </span>
+                            </button>
+                            <br />
+
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                <defs>
+                                    <filter id="goo">
+                                        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                                        <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                                    </filter>
+                                </defs>
+                            </svg>
+
+                        </div>
+
+
+
+
+                    </p>
+                    <script type="text/javascript">
+                        var elem = document.getElementById("user");
+                        elem.value = window.location.href.split('&')[1];
+                    </script>
+            </main>
+
+            <style>
+                .input {
+                    width: 34rem;
+                    height: 4rem;
+                    background: #F2F2F2;
+                    border: 2px solid #2a52be;
+                    border-radius: 2rem;
+                    outline: none;
+                    font-size: 2rem;
+                    color: #737373;
+                    letter-spacing: 1px;
+                    text-indent: 2rem;
+                    font-family: 'Open Sans', serif;
+                    font-size: 2rem;
+                }
+
+
+                *, *:before, *:after {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                }
+
+
+                .buttons {
+                    margin-top: 50px;
+                    text-align: center;
+                    border-radius: 30px;
+                }
+
+                .blob-btn {
+                    z-index: 1;
+                    position: relative;
+                    padding: 20px 46px;
+                    margin-bottom: 30px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: #737373;
+                    font-size: 16px;
+                    font-weight: bold;
+                    background: #F2F2F2;
+                    outline: none;
+                    border: none;
+                    transition: color 0.5s;
+                    cursor: pointer;
+                    border-radius: 30px;
+                }
+
+                    .blob-btn:before {
+                        content: "";
+                        z-index: 1;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: 2px solid #2a52be;
+                        border-radius: 30px;
+                    }
+
+                    .blob-btn:after {
+                        content: "";
+                        z-index: -2;
+                        position: absolute;
+                        left: 3px;
+                        top: 3px;
+                        width: 100%;
+                        height: 100%;
+                        transition: all 0.3s 0.2s;
+                        border-radius: 30px;
+                    }
+
+                    .blob-btn:hover {
+                        color: #FFFFFF;
+                        border-radius: 30px;
+                    }
+
+                        .blob-btn:hover:after {
+                            transition: all 0.3s;
+                            left: 0;
+                            top: 0;
+                            border-radius: 30px;
+                        }
+
+                .blob-btn__inner {
+                    z-index: -1;
+                    overflow: hidden;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 30px;
+                    background: #F2F2F2;
+                    ;
+                }
+
+                .blob-btn__blobs {
+                    position: relative;
+                    display: block;
+                    height: 100%;
+                    filter: url("#goo");
+                }
+
+                .blob-btn__blob {
+                    position: absolute;
+                    top: 2px;
+                    width: 25%;
+                    height: 100%;
+                    background: #2a52be;
+                    border-radius: 100%;
+                    transform: translate3d(0, 150%, 0) scale(1.7);
+                    transition: transform 0.45s;
+                }
+
+                supports (filter: url("#goo")) {
+                    .blob-btn__blob
+
+                {
+                    transform: translate3d(0, 150%, 0) scale(1.4);
+                }
+
+                }
+
+                .blob-btn__blob:nth-child(1) {
+                    left: 0%;
+                    transition-delay: 0s;
+                }
+
+                .blob-btn__blob:nth-child(2) {
+                    left: 30%;
+                    transition-delay: 0.08s;
+                }
+
+                .blob-btn__blob:nth-child(3) {
+                    left: 60%;
+                    transition-delay: 0.16s;
+                }
+
+                .blob-btn__blob:nth-child(4) {
+                    left: 90%;
+                    transition-delay: 0.24s;
+                }
+
+                .blob-btn:hover .blob-btn__blob {
+                    transform: translateZ(0) scale(1.7);
+                }
+            </style>
+
+
+
+
+        </form>
+
+
+
+
+
+    </div>
+    <!-- OpenVidu Web Component -->
+    <openvidu-webcomponent style="display: none"></openvidu-webcomponent>
+
+</body>
+
+</html>

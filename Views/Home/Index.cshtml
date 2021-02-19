@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = @"..\MyLayout.cshtml";
+}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon3.ico" type="image/png" />
+
+    <style>
+        #startext {
+            position: relative;
+            padding-top: 40vh;
+            color: #FFF;
+            text-align: center;
+            font-family: "lato", sans-serif;
+            font-weight: 300;
+            font-size: 50px;
+            letter-spacing: 10px;
+            margin-top: -60px;
+            padding-left: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div id="startext">
+        <span>
+            INTERSHIP WEB PROJECT
+        </span>
+        <br>
+        <span>
+            CREATE YOU ACCOUNT AND
+            <a id="start" href="/Conference"><u><b>GET STARTED</b></u></a>
+
+            <script>
+                document.getElementById('start').onclick = function () {
+
+                    document.getElementById('start').onclick = function () {
+
+                        $('#sidebar').toggleClass('active');
+
+                        return false;
+                    }
+
+                    return false;
+                }
+            </script>
+        </span>
+    </div>
+
+</body>
+</html>
